@@ -16,6 +16,17 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Composer dependencies (build-time only)
+        run: composer install --no-dev --prefer-dist --optimize-autoloader --ignore-platform-reqs
+        # vendor/ dibutuhkan di sini karena resources/css/app.css meng-import langsung
+        # CSS & stub blade dari vendor/livewire/flux untuk Tailwind v4 content-scanning.
+        # vendor/ ini TIDAK diupload ke server; server tetap install vendor sendiri lewat composer.phar.
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
