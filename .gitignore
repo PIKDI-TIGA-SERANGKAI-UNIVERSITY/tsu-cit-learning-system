@@ -38,3 +38,18 @@ yarn-error.log
 /boost.json
 /opencode.json
 /opencode.jsonc
+
+# Database dumps
+*.sql
+*.sqlite
+
+# Compressed archives & backups
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+
+# Local development / Scratch testing
+/scratch
+scratch/
